@@ -6,7 +6,7 @@
 /*   By: eleclet <eleclet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/27 17:18:07 by eleclet           #+#    #+#             */
-/*   Updated: 2016/05/04 19:13:56 by eleclet          ###   ########.fr       */
+/*   Updated: 2016/05/12 18:17:14 by eleclet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int        main()
 
             add(&line, cha);
             printend(&line);
-            godown(&line);
+            godown(&line, 0);
         }
         debugtofile(&line, "main");
     }

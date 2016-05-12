@@ -6,7 +6,7 @@
 /*   By: eleclet <eleclet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/27 17:40:21 by eleclet           #+#    #+#             */
-/*   Updated: 2016/05/04 17:11:11 by eleclet          ###   ########.fr       */
+/*   Updated: 2016/05/12 18:17:05 by eleclet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,11 @@ void goright(t_line *line)
 {
     if (line->poslen == line->len)
         return ;
-    if (line->posx == line->lenx && line->posy != line->leny)
+    if (godown(line, 1))
     {
-        line->posy++;
 		line->poslen++;
-        line->posx = 0;
-        line->lenx = line->len - col() + 7;
-        tputs(tgetstr("do", 0), 0, outc);
-		if (!line->posx && line->posy == line->leny)
-		{
-			line->lenx = (line->len + 7) - col() * (line->posy);
-		}
+        line->lenx = col();
+
     }
 	else
 	{
