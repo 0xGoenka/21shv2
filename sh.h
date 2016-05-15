@@ -14,10 +14,11 @@
 # define SH_H
 # include "libft/libft.h"
 # include <unistd.h>
+# include <curses.h>
+# include <term.h>
 # include <stdio.h> //sdd
 # include <termcap.h>
 # include <termios.h>
-# include <curses.h>
 # include <sys/ioctl.h>
 
 typedef struct          s_lst
@@ -43,7 +44,7 @@ int        init(t_line *line);
 void	   add(t_line *line, char cha);
 void       printlast(t_line *line);
 void	   delelem(t_line *line);
-void	   printend(t_line *line);
+void	   printend(t_line *line, int bo);
 void       goodcol(t_line *line);
 // defterm.c
 int		def_term(void);
@@ -63,6 +64,6 @@ int     row(void);
 int		debugtofile(t_line *line, char *s);
 // cursor.c
 void     toend(void);
-void    godown(t_line *line);
+int     godown(t_line *line, int pad);
 
 #endif

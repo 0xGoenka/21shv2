@@ -28,7 +28,7 @@ int	 movecursor(char *s, t_line *line)
 	{
 		delelem(line);
 		tputs(tgetstr("cd", 0), 0, outc);
-		printend(line);
+		printend(line, 1);
 		return (1);
 	}
 	return (0);

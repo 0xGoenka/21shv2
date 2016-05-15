@@ -28,7 +28,7 @@ int        main()
         {
 
             add(&line, cha);
-            printend(&line);
+            printend(&line, 0);
             godown(&line, 0);
         }
         debugtofile(&line, "main");

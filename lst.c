@@ -131,7 +131,7 @@ void	delelem(t_line *line)
 //        line->lenx--
 //    }
 }
-void 		printend(t_line *line)
+void 		printend(t_line *line, int bo)
 {
 	int i;
 	int leny;
@@ -143,7 +143,8 @@ void 		printend(t_line *line)
     tputs(tgetstr("cd", 0), 0, outc);
 	lst = lst->next;
 	//debugtofile(line, "pend");
-    //tputs(tgetstr("sc", 0), 0, outc);
+	if (bo)
+    		tputs(tgetstr("sc", 0), 0, outc);
 	while (i < line->len)
 	{
 		if (i >= line->poslen)
@@ -164,10 +165,8 @@ void 		printend(t_line *line)
         tputs(tgetstr("up", 0),0 ,outc);
         leny--;
     }
-
-
-    //tputs(tgetstr("rc", 0), 0, outc);
-
+	if (bo)
+    		tputs(tgetstr("rc", 0), 0, outc);
 }
 
 
@@ -176,10 +175,10 @@ void printlast(t_line *line)
     t_lst *lst;
 
     lst = line->lst;
-	while (lst->next)
-	{
-		lst = lst->next;
-	}
+    while (lst->next)
+    {
+	lst = lst->next;
+    }
     if (lst->cha != 0)
 	   ft_putchar(lst->cha);
     else
