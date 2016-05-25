@@ -1,0 +1,1 @@
+countlst 6 posx 5 col 82 posy 0  lenx 5 leny 0 len 5   lenpos 5 debug : main                                                     
