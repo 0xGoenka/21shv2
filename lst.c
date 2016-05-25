@@ -6,14 +6,15 @@
 /*   By: eleclet <eleclet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/27 17:24:51 by eleclet           #+#    #+#             */
-/*   Updated: 2016/05/11 18:05:30 by eleclet          ###   ########.fr       */
+/*   Updated: 2016/05/24 12:40:27 by eleclet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-int        init(t_line *line)
+t_line        *init(t_line *line)
 {
+	line = (t_line *)malloc(sizeof(*line));
     if (!(line->lst = (t_lst *)malloc(sizeof(t_lst))))
         return (0);
     line->posx = 0;
@@ -25,7 +26,8 @@ int        init(t_line *line)
     line->lst->next = NULL;
     line->lst->prev = NULL;
     line->lst->cha = 0;
-    return (1);
+	line->lst->len = 0;
+    return (line);
 }
 
 void	add(t_line *line, char cha)
@@ -65,6 +67,7 @@ void	add(t_line *line, char cha)
     line->poslen++;
     line->lenx++;
     line->len++;
+	line->lst->len = 0;
     line->leny = (line->len + 6) / col();
 }
 
@@ -141,6 +144,7 @@ void 		printend(t_line *line, int bo)
 	leny = 0;
     lst = line->lst;
     tputs(tgetstr("cd", 0), 0, outc);
+    tputs(tgetstr("vi", 0), 0, outc);
 	lst = lst->next;
 	//debugtofile(line, "pend");
 	if (bo)
@@ -167,6 +171,7 @@ void 		printend(t_line *line, int bo)
     }
 	if (bo)
     		tputs(tgetstr("rc", 0), 0, outc);
+	tputs(tgetstr("ve", 0), 0, outc);
 }
 
 

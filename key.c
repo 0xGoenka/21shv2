@@ -6,7 +6,7 @@
 /*   By: eleclet <eleclet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/27 17:40:21 by eleclet           #+#    #+#             */
-/*   Updated: 2016/05/12 18:17:05 by eleclet          ###   ########.fr       */
+/*   Updated: 2016/05/23 20:08:29 by eleclet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,30 @@
 
 int	 movecursor(char *s, t_line *line)
 {
-	if (s[0] == 27 && s[1] == 91 && s[2] == 68)
+	if (s[0] == 27 && s[1] == 91 && s[2] == 68) // left
     {
         goleft(line);
         return (1);
     }
-	if (s[0] == 27 && s[1] == 91 && s[2] == 67)
+	if (s[0] == 27 && s[1] == 91 && s[2] == 67) // right
 	{
 		goright(line);
 		return (1);
 	}
-	if (s[0] == 127 && s[1] == 0)
+	if (s[0] == 127 && s[1] == 0) // del
 	{
 		delelem(line);
 		tputs(tgetstr("cd", 0), 0, outc);
 		printend(line, 1);
 		return (1);
+	}
+	if (s[0] == 21 && s[1] == 91 && s[2] == 66) // down
+ 	{
+		return (0);
+	}
+	if (s[0] == 21 && s[1] == 91 && s[2] == 65) // up
+ 	{
+		return (0);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: eleclet <eleclet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/23 13:39:14 by eleclet           #+#    #+#             */
-/*   Updated: 2016/05/03 19:14:06 by eleclet          ###   ########.fr       */
+/*   Updated: 2016/05/24 12:38:08 by eleclet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int		debugtofile(t_line *line, char *s)
 	int i;
 	t_lst *lst;
 
+	if (!line)
+		return (0);
 	i = 0;
 	lst = line->lst;
 	fd = open("debug.txt", O_WRONLY);
